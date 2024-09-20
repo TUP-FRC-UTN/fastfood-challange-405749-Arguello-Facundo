@@ -1,0 +1,17 @@
+<div class="delivery-point">
+  <h2>Delivery:</h2>
+  <h3>Pedidos listos para entregar:</h3>
+  @if (pedidos.pedidosTerminados.length >= 1) {
+  <ul>
+    @for (pedido of pedidos.pedidosTerminados; track $index) {
+    <li>
+      <b>Pedido numero {{ pedido.number }}:</b> {{ pedido.description }} para
+      {{ pedido.name }}
+      <button (click)="Entregar($index)">Entregar pedido</button>
+    </li>
+    }
+  </ul>
+  } @else {
+  <span>(vacio)</span>
+  }
+</div>

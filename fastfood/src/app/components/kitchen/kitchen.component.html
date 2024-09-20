@@ -1,0 +1,32 @@
+<div class="kitchen">
+  <h2>Cocina:</h2>
+  <h4>Pendiente de Cocinar:</h4>
+
+  <ul>
+    @if (pedidos.pedidosIngresados.length==0) {
+    <span style="color: gray"> (vacio)</span>
+    } @for (pedido of pedidos.pedidosIngresados; track $index) {
+    <li>
+      ({{ pedido.number }}) - {{ pedido.description }}
+      <button
+        (click)="Cocinar(pedido, $index)"
+        [disabled]="pedidos.pedidosCocinando.length == 1"
+      >
+        Cocinar
+      </button>
+    </li>
+    }
+  </ul>
+  <h4>Pedido en cocina:</h4>
+  <ul>
+    @if (pedidos.pedidosCocinando.length==0) {
+    <span style="color: gray">En espera...</span>
+    } @else {
+    <li>
+      ({{ pedidos.pedidosCocinando[0].number }})
+      {{ pedidos.pedidosCocinando[0].description }}
+      <button (click)="Enviar()">Terminar pedido</button>
+    </li>
+    }
+  </ul>
+</div>

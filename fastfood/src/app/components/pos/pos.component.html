@@ -1,0 +1,25 @@
+<div class="pos">
+  <h2>POS - Point of Sell</h2>
+  <h3>Ingresar Pedido</h3>
+  <div class="form">
+    <form (ngSubmit)="Confirmar(form)" #form="ngForm">
+      <label for="name">Nombre: </label>
+      <input
+        type="text"
+        name="name"
+        ngModel
+        placeholder="Ingrese su nombre..."
+      />
+      <br /><br />
+      <label for="description">Pedido: </label>
+      <input
+        type="text"
+        name="description"
+        ngModel
+        placeholder="Ingrese su pedido..."
+      />
+      <br /><br />
+      <button type="submit">Ordenar</button>
+    </form>
+  </div>
+</div>
